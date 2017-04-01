@@ -12,6 +12,7 @@
   "author": "\u001b[B",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.15.2",
     "uuid": "^3.0.1"
   }
 }
