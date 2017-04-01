@@ -1,6 +1,15 @@
 const router = express.router();
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
+
+const {BlogPosts} = require('./models');
 
 const requiredFields = ['title', 'content', 'author'];
+
+BlogPosts.create('Humor: darker better',
+ 'You can learn a lot about a person by knowing what they laugh at. Well then, sadist is my middle name, my puny reader. You talk about accident in Mexico, I\'ll make fun of the deaths cause it\'s overpopulated. Haha!', 
+ 'Peep GupGup');
+
 
 router.get('/', (req, res) => {
 	res.json(BlogPosts.get());
@@ -50,3 +59,5 @@ router.put('/update/:id', jsonParser, (req, res) => {
 
 	res.status(200).message(updatedBlog);
 });
+
+module.exports = router;
